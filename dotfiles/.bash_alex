@@ -56,7 +56,7 @@ PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;37m\]\$\[\033[0m\] "
 PS1="${bred}\u@\h ${ylw}\w${wht}\$${clr} "
 
 # If Im in tmux
-if ! { [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; } then
+if { [ "$TMUX" ]; } then
   # PS1="@$HOSTNAME $PS1"
   PS1="${bgrn}--> ${ylw}\w${wht}\$${clr} "
 fi
