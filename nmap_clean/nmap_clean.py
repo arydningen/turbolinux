@@ -16,7 +16,7 @@ while True:
     if line.startswith('Nmap scan report for'):
         ip_address = line.split()[-1]
         hostname = line.split()[4]
-        results.append(' ')
+        # results.append(' ')
         results.append(f'{hostname} {ip_address}')
         result = f'{hostname} {ip_address}'
 
