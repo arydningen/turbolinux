@@ -68,8 +68,14 @@ then
   git config --global user.email "arydningen@gmail.com"
 fi
 
-# Aliases
+# If my key is on the system
+if [[ -f ~/.ssh/id_ed25519_github ]]; then
+  eval "$(ssh-agent -s)" > /dev/null
+  ssh-add ~/.ssh/id_ed25519_github &> /dev/null
+fi
 
+
+# Aliases
 alias tmuxnew='tmux new -s A10X'
 
 # nnn
