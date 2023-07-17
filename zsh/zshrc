@@ -21,7 +21,6 @@ idcolor="%B%F{#875fd7}"
 dircolor="%B%F{#ffd700}"
 promptcolor="%B%F{#d70000}"
 
-
 # Set my standard prompt
 PS1="${idcolor}%n@%m ${dircolor}%~${promptcolor}%#$reset_color "
 
@@ -30,34 +29,19 @@ if { [ "$TMUX" ]; } then
   PS1="${idcolor}==> ${dircolor}%~${promptcolor}%#$reset_color "
 fi
 
-alias c='clear'
-
-alias vimb='vim ~/.bash_alex'
-
-# Select a text editor (nano as last resort)
-export EDITOR=nano
-# If we have vim then use that
-if command -v vim &> /dev/null
-then
-  export EDITOR=vim
-fi
-alias vi='vim'
-# If we have neovim, ditch vim
-if command -v nvim &> /dev/null
-then
-  export EDITOR=nvim
-  alias vim='nvim'
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
-function alex(){
- PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;37m\]\$\[\033[0m\] " 
-}
+source $HOME/.bash_aliases
 
-# Finds tagged hosts Usage
-function ssh-hosts-tag() {
-  sed -n -e "/# $1/,/# / p" ~/.ssh/config
-}
 
-alias ssh-hosts="grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'"
 
 # End of lines configured by alex
