@@ -25,5 +25,5 @@ fi
 EOT
 
 # Symlink the simple_alex theme to the themes folder
-ln -fs ~/.alex/zsh/simple_alex.zsh-theme ~/.oh-my-zsh/themes/simple_alex-theme
+ln -fs ~/.alex/zsh/simple_alex.zsh-theme ~/.oh-my-zsh/themes/simple_alex.zsh-theme
 
