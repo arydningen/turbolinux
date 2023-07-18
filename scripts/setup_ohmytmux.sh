@@ -15,5 +15,4 @@ mv $HOME/.config/tmux/.tmux.conf $HOME/.config/tmux/tmux.conf
 mv $HOME/.config/tmux/.tmux.conf.local $HOME/.config/tmux/tmux.conf.local
 
 # Trick to get my theme
-sed 'a /tmux_conf_theme_colour_17=".*/r ~/.alex/tmux/mytmuxtheme'
-
+sed -e "/tmux_conf_theme_colour_17=/r$HOME/.alex/tmux/mytmuxtheme" ~/.config/tmux/tmux.conf.local
