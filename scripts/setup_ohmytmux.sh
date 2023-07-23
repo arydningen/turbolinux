@@ -16,3 +16,8 @@ mv $HOME/.config/tmux/.tmux.conf.local $HOME/.config/tmux/tmux.conf.local
 
 # Trick to get my theme
 sed -i -e "/tmux_conf_theme_colour_17=/r$HOME/.alex/tmux/mytmuxtheme" ~/.config/tmux/tmux.conf.local
+
+# Add cool write-to-all panes mode toggle
+echo "# Add cool write-to-all panes mode toggle" >> ~/.config/tmux/tmux.conf.local
+echo bind C-Y set-window-option synchronize-panes >> ~/.config/tmux/tmux.conf.local
+
