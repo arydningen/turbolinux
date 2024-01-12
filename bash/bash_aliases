@@ -1,6 +1,8 @@
 # Aliases
 alias tmuxnew='tmux new -s A10X'
 
+alias lsla = 'ls -lash'
+
 # nnn
 alias nnn='nnn -CEDHUdei'
 alias sudonnn='sudo -E nnn -CEDHUdei'
