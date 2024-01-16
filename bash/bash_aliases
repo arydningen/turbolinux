@@ -1,7 +1,17 @@
 # Aliases
 alias tmuxnew='tmux new -s A10X'
+alias lsla='ls -lash'
+alias c='clear'
+alias blink="printf '\e[?12h'"
+alias blinkbar="printf '\033[6 q' ; printf '\e[?12h'"
+alias bb=blinkbar
 
-alias lsla = 'ls -lash'
+# Systemctl
+alias screstart='sudo systemctl restart'
+alias scstatus='sudo systemctl status'
+alias scenable='sudo systemctl enable'
+alias scstop='sudo systemctl stop'
+alias scstart='sudo systemctl start'
 
 # nnn
 alias nnn='nnn -CEDHUdei'
@@ -12,12 +22,7 @@ alias sudonnn='sudo -E nnn -CEDHUde'
 # Shows the level when using ! to spawn a terminal in nnn
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
 
-alias c='clear'
-
-alias vimb='vim ~/.bash_alex'
-
 # Exports
-
 # Select a text editor (nano as last resort)
 export EDITOR=nano
 # If we have vim then use that
@@ -37,10 +42,25 @@ function alex(){
  PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;37m\]\$\[\033[0m\] " 
 }
 
-# Finds tagged hosts Usage
-function ssh-hosts-tag() {
-  sed -n -e "/# $1/,/# / p" ~/.ssh/config
+# Git
+if command -v git &> /dev/null
+then
+  git config --global user.name "arydningen"
+  git config --global user.email "arydningen@gmail.com"
+fi
+
+function gitme(){
+  # If my key is on the system
+  if [[ -f ~/.ssh/id_ed25519_github ]]; then
+    eval "$(ssh-agent -s)" > /dev/null
+    ssh-add ~/.ssh/id_ed25519_github &> /dev/null
+  fi
 }
 
-alias ssh-hosts="grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'"
+# Finds tagged hosts Usage
+# function ssh-hosts-tag() {
+#   sed -n -e "/# $1/,/# / p" ~/.ssh/config
+# }
+
+# alias ssh-hosts="grep -P \"^Host ([^*]+)$\" $HOME/.ssh/config | sed 's/Host //'"
 
