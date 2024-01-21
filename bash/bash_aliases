@@ -30,10 +30,13 @@ alias sshoff='eval "$(ssh-agent -k)" > /dev/null'
 
 # Adds my keys to agent if present
 function sshme(){
-  # If my key is on the system
+  # If my github key is on the system
   if [[ -f ~/.ssh/id_ed25519_github ]]; then
-    ssh-add ~/.ssh/id_ed25519_github &> /dev/null
-    ssh-add ~/.ssh/id_ed25519 &> /dev/null
+    ssh-add ~/.ssh/id_ed25519_github &> /dev/null 
+  fi
+  # If the standard key is on the system
+  if [[ -f ~/.ssh/id_ed25519 ]]; then
+    ssh-add ~/.ssh/id_ed25519 &> /dev/null 
   fi
 }
 
