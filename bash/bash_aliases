@@ -22,6 +22,10 @@ alias sudonnn='sudo -E nnn -CEDHUde'
 # Shows the level when using ! to spawn a terminal in nnn
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
 
+# Start and stop the ssh-agent
+alias sshon='eval "$(ssh-agent -s)" > /dev/null'
+alias sshoff='eval "$(ssh-agent -k)" > /dev/null'
+
 # Exports
 # Select a text editor (nano as last resort)
 export EDITOR=nano
@@ -52,7 +56,7 @@ fi
 function gitme(){
   # If my key is on the system
   if [[ -f ~/.ssh/id_ed25519_github ]]; then
-    eval "$(ssh-agent -s)" > /dev/null
+    #eval "$(ssh-agent -s)" > /dev/null
     ssh-add ~/.ssh/id_ed25519_github &> /dev/null
   fi
 }
