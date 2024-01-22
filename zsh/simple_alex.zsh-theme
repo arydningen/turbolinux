@@ -6,8 +6,6 @@ idcolor="%B%F{#875fd7}"
 dircolor="%B%F{#ffd700}"
 promptcolor="%B%F{#d70000}"
 
-
-
 # PROMPT='%(!.%{$fg[red]%}.%{$fg[green]%})%~$(git_prompt_info)%{$reset_color%} '
 PROMPT='${idcolor}%n@%m %(!.%{$fg[red]%}.%{$dircolor%})%~$(git_prompt_info)%{$reset_color%} '
 
