@@ -77,6 +77,13 @@ if [ -f "$HOME/.$(hostname)" ]; then
     source "$HOME/.$(hostname)"
 fi
 
+# If Im in tmux
+if { [ "$TMUX" ]; } then
+  # PS1="@$HOSTNAME $PS1"
+  PS1="${bgrn}-> ${ylw}\w${wht}\$${clr} "
+fi
+
+
 # Finds tagged hosts Usage
 # function ssh-hosts-tag() {
 #   sed -n -e "/# $1/,/# / p" ~/.ssh/config
