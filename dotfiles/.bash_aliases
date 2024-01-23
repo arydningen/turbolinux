@@ -78,10 +78,10 @@ if [ -f "$HOME/.$(hostname)" ]; then
 fi
 
 # If Im in tmux
-if { [ "$TMUX" ]; } then
+#if { [ "$TMUX" ]; } then
   # PS1="@$HOSTNAME $PS1"
-  PS1="${bgrn}-> ${ylw}\w${wht}\$${clr} "
-fi
+  # PS1="${bgrn}-> ${ylw}\w${wht}\$${clr} "
+#fi
 
 
 # Finds tagged hosts Usage
