@@ -4,11 +4,17 @@ set nocompatible
 " Turn on syntax highlighting
 syntax on
 
+" Mouse scroll
+set mouse=a
+
 " Show file stats
 set ruler
 
 " Encoding
 set encoding=utf-8
+
+" So the # dont go to newline, see :help fo-table
+set formatoptions-=cro
 
 " Whitespace
 set wrap
@@ -22,4 +28,4 @@ set noshiftround
 
 " Color scheme (terminal)
 set background=dark
-colorscheme momiji
+colorscheme night-owl
