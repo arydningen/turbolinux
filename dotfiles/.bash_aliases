@@ -23,7 +23,6 @@ alias sudonnn='sudo -E nnn -CEDHUde'
 [ -n "$NNNLVL" ] && PS1="N$NNNLVL $PS1"
 
 # SSH
-
 # Start and stop the ssh-agent
 alias sshon='eval "$(ssh-agent -s)" > /dev/null'
 alias sshoff='eval "$(ssh-agent -k)" > /dev/null'
@@ -39,6 +38,13 @@ function sshme(){
     ssh-add ~/.ssh/id_ed25519 &> /dev/null 
   fi
 }
+
+# Git
+if command -v git &> /dev/null
+then
+  git config --global user.name "arydningen"
+  git config --global user.email "arydningen@gmail.com"
+fi
 
 # Exports
 # Select a text editor (nano as last resort)
@@ -57,13 +63,6 @@ function alex(){
  PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;37m\]\$\[\033[0m\] " 
 }
 
-# Git
-if command -v git &> /dev/null
-then
-  git config --global user.name "arydningen"
-  git config --global user.email "arydningen@gmail.com"
-fi
-
 # Colors for less pager
 export LESS_TERMCAP_mb=${red} # enter blinking mode
 export LESS_TERMCAP_md=$(printf '\e[01;38;5;75m') # enter double-bright mode
@@ -73,7 +72,7 @@ export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode
 export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
 export LESS_TERMCAP_us=$(printf '\e[04;38;5;200m') # enter underline mode
 
-# If the host has something special (tussi)
+# If the host has something special (.tussi)
 if [ -f "$HOME/.$(hostname)" ]; then
     source "$HOME/.$(hostname)"
 fi
