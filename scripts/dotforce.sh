@@ -1,5 +1,5 @@
 #!/bin/bash
-dotfiles_repo="/home/alex/git/turbolinux/dotfiles"  # Replace with the actual path to your dotfiles repo
+dotfiles_repo="$HOME/git/turbolinux/dotfiles"  # Replace with the actual path to your dotfiles repo
 
 # Delete any vim config
 rm -rf ~/.vimrc
