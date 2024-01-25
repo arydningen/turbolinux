@@ -5,7 +5,7 @@ set nocompatible
 syntax on
 
 " Mouse scroll
-set mouse=r
+set mouse=nvi
 
 " Show file stats
 set ruler

@@ -63,6 +63,12 @@ function alex(){
  PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;37m\]\$\[\033[0m\] " 
 }
 
+cm() {
+    local valid_colors=("green" "red" "blue" "white" "yellow" "cyan" "magenta" "black")
+    local random_color=${valid_colors[$((RANDOM % ${#valid_colors[@]}))]}
+    cmatrix -b -a -s -C "$random_color"
+}
+
 # Colors for less pager
 export LESS_TERMCAP_mb=${red} # enter blinking mode
 export LESS_TERMCAP_md=$(printf '\e[01;38;5;75m') # enter double-bright mode
