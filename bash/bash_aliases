@@ -13,6 +13,9 @@ alias scenable='sudo systemctl enable'
 alias scstop='sudo systemctl stop'
 alias scstart='sudo systemctl start'
 
+# Disk usage emergency
+alias du='du -hc'
+
 # nnn
 alias nnn='nnn -CEDHUdei'
 alias sudonnn='sudo -E nnn -CEDHUdei'
