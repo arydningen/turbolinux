@@ -26,7 +26,21 @@ set softtabstop=2
 set expandtab
 set noshiftround
 
+" Searching
+set hlsearch
+set incsearch
+set showmatch
+set ignorecase
+set smartcase
+
+" See all tab choices
+set wildmenu
+set termguicolors
+
 " Color scheme (terminal)
 set t_Co=256
 set background=dark
 colorscheme night-owl
+
+" Toggle line numbers
+nnoremap <leader>l :set number!<CR>

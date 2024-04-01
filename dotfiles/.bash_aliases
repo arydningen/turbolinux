@@ -1,6 +1,6 @@
 # Aliases
 alias tmuxnew='tmux new -s A10X'
-alias lsla='ls -lash'
+alias lsa='ls -lash'
 alias c='clear'
 alias blink="printf '\e[?12h'"
 alias blinkbar="printf '\033[6 q' ; printf '\e[?12h'"
@@ -54,6 +54,7 @@ if command -v vim &> /dev/null
 then
   export EDITOR=vim
 fi
+# If we have nvim then use that
 if command -v nvim &> /dev/null
 then
   export EDITOR=nvim
