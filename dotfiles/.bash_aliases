@@ -1,6 +1,6 @@
 # Aliases
 alias tmuxnew='tmux new -s A10X'
-alias lsa='ls -lash'
+alias lsa='ls -Flash'
 alias c='clear'
 alias blink="printf '\e[?12h'"
 alias blinkbar="printf '\033[6 q' ; printf '\e[?12h'"
