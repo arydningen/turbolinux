@@ -27,6 +27,8 @@ alias sudonnn='sudo -E nnn -CEDHUde'
 alias sshon='eval "$(ssh-agent -s)" > /dev/null'
 alias sshoff='eval "$(ssh-agent -k)" > /dev/null'
 
+alias term='export TERM=xterm-256color'
+
 # Adds my keys to agent if present
 function sshme(){
   # If my github key is on the system
@@ -70,6 +72,41 @@ cm() {
     cmatrix -b -a -s -C "$random_color"
 }
 
+# Common directories
+function dirme(){
+  directories=(
+      "$HOME/.ssh"
+      "/var/log"
+      "/var/log/apache2"
+      "/var/log/nginx"
+      "/var/log/bind9"
+      "/var/log/dhcp"
+      "/var/www"
+      "/var/lib/docker"
+      "/etc/apache2"
+      "/etc/nginx"
+      "/etc/bind"
+      "/etc/dhcp"
+      "/mnt/jungelen"
+      "/mnt/mercury"
+  )
+
+  # Loop through each directory and push to stack if it exists
+  for dir in "${directories[@]}"; do
+      if [ -d "$dir" ]; then
+          pushd -n "$dir" > /dev/null
+      fi
+  done
+}
+
+alias d='dirs -v'
+
+pp() {
+  pushd +"$1" > /dev/null
+}
+
+alias p='pp'
+
 # Colors for less pager
 export LESS_TERMCAP_mb=${red} # enter blinking mode
 export LESS_TERMCAP_md=$(printf '\e[01;38;5;75m') # enter double-bright mode
@@ -92,7 +129,7 @@ fi
 
 
 # Finds tagged hosts Usage
-# function ssh-hosts-tag() {
+# function ssh-hosts-tag() {:q
 #   sed -n -e "/# $1/,/# / p" ~/.ssh/config
 # }
 
