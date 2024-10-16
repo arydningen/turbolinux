@@ -62,6 +62,14 @@ then
   export EDITOR=nvim
 fi
 
+# LSD
+if command -v lsd $> /dev/null
+then
+  alias ls='lsd'
+  alias lsa='lsd -al'
+  alias lsl='lsd -l'
+fi
+
 function alex(){
  PS1="\[\033[1;31m\]\u@\h \[\033[0;34m\]\w\[\033[0;37m\]\$\[\033[0m\] " 
 }
