@@ -55,11 +55,13 @@ export EDITOR=nano
 if command -v vim &> /dev/null
 then
   export EDITOR=vim
+  export SUDO_EDITOR=vim
 fi
 # If we have nvim then use that
 if command -v nvim &> /dev/null
 then
   export EDITOR=nvim
+  export SUDO_EDITOR=nvim
 fi
 
 # LSD
